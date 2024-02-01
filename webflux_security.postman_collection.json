@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "5bd63ddc-4d14-4e96-a95a-4ec82e829a11",
+		"name": "webflux_security",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28525758"
+	},
+	"item": [
+		{
+			"name": "registration",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"host": true,
+					"user-agent": true,
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"test\",\r\n    \"first_name\": \"Nick\",\r\n    \"last_name\": \"Test\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept-encoding": true,
+					"connection": true,
+					"accept": true,
+					"user-agent": true,
+					"host": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"testUser\",\r\n    \"password\": \"test\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IlVTRVIiLCJpc3MiOiJuaWtpIiwiZXhwIjoxNzA2NzY5MjgwLCJpYXQiOjE3MDY3NjU2ODAsImp0aSI6ImZhMGMwMjk1LTIxMjQtNDAyYi04Y2ViLTcwYjQ5ZDZhNzNiNiIsInVzZXJuYW1lIjoidGVzdFVzZXIifQ.4GGOYnf3RAPOnNQ8UqlM75paWRhDjOLnBaldzTHf-58",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/v1/auth/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout testing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0Iiwicm9sZSI6IlVTRVIiLCJpc3MiOiJuaWtpIiwiZXhwIjoxNjg0NzMxNjM5LCJpYXQiOjE2ODQ3MjgwMzksImp0aSI6IjZjMTIxNmVlLTQ3NGItNGE1Ni05OGMyLTc1YTk0MGM3ZjQyNyIsInVzZXJuYW1lIjoidGVzdGluZ01pbmUifQ.OuAaR4Uq1LnQc-eEgD1UWlfZbqRm_h5SaHxDLZqz-A0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/api/v1/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
